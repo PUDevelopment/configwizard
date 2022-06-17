@@ -25,4 +25,5 @@ Configuration config = new BukkitConfigurationBuilder(new File("mappa"), "config
 
 config.initConfig();
 		
-int value = nodeContainer.TEST_INT```
+int value = nodeContainer.TEST_INT;
+```
