@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>eu.playerunion.configwizard</groupId>
+	<artifactId>configwizard</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<name>configwizard</name>
+	<description>
+		Könyvtár json-based konfigurációk létrehozásához.
+		Egyben első projektem, ami Spigot és Sponge kompatibilis.
+	</description>
+
+	<properties>
+		<java.version>17</java.version>
+		<spigot.version>1.18.2-R0.1-SNAPSHOT</spigot.version>
+		<sponge.version>8.0.0</sponge.version>
+	</properties>
+
+	<build>
+		<defaultGoal>clean compile package</defaultGoal>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.4</version>
+
+				<executions>
+					<execution>
+						<phase>package</phase>
+
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>sponge-repo</id>
+			<url>https://repo.spongepowered.org/repository/maven-public/</url>
+		</repository>
+
+		<repository>
+			<id>Spigot</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.spigotmc</groupId>
+			<artifactId>spigot-api</artifactId>
+			<version>${spigot.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.spongepowered</groupId>
+			<artifactId>spongeapi</artifactId>
+			<version>${sponge.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+</project>
