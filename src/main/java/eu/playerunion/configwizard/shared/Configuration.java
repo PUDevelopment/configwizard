@@ -141,7 +141,7 @@ public class Configuration {
 	 * @param typeAdapter - Beregisztrálni kívánt TypeAdapter.
 	 */
 
-	public void registerTypeAdapter(ConfigurationTypeAdapter<?> typeAdapter) {
+	public void registerTypeAdapter(@NotNull ConfigurationTypeAdapter<?> typeAdapter) {
 		Validate.notNull(typeAdapter, "A beregisztrálni kívánt TypeAdapter nem lehet null!");
 
 		this.gson = this.gsonBuilder.registerTypeAdapter(typeAdapter.getType(), typeAdapter).create();
