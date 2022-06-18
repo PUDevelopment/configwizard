@@ -12,7 +12,7 @@ public interface ConfigurationTypeAdapter<T> extends JsonSerializer<T>, JsonDese
 	 */
 	
 	/**
-	 * Serializolt objektumok típusának meghatározása.
+	 * Serializeolt objektumok típusának meghatározása.
 	 * 
 	 * @return type - Az objektum típusa.
 	 */

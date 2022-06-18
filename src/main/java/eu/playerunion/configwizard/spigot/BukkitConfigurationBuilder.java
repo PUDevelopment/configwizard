@@ -14,15 +14,34 @@ public class BukkitConfigurationBuilder implements ConfigurationBuilder {
 	
 	private @Nullable Configuration configuration;
 	
+	/**
+	 * Új Bukkit/Spigot oldali konfiguráció létrehozása.
+	 * 
+	 * @param directory - A fájl mappája.
+	 * @param fileName - A fájl neve.
+	 * @param configurationNodeContainer - A beállításokat tartalmazó class.
+	 */
+	
 	public BukkitConfigurationBuilder(@NotNull File directory, @NotNull String fileName, @NotNull ConfigurationNodeContainer configurationNodeContainer) {
 		this.configuration = new Configuration(directory, fileName, configurationNodeContainer);
 	}
+	
+	/**
+	 * Bukkithoz tartozó TypeAdapterek engedélyezése.
+	 * Érdemes alkalmazni, ha UUID-t, Locationt és hasonlóak tervezel tárolni.
+	 * 
+	 * @return bukkitConfigurationBuilder - Ez az objektum.
+	 */
 	
 	public BukkitConfigurationBuilder enableBukkitTypeAdapters() {
 		this.configuration.registerTypeAdapter(new BukkitLocationTypeAdapter());
 		
 		return this;
 	}
+	
+	/**
+	 * Konfiguráció létrehozása és lekérése.
+	 */
 
 	@Override
 	public @Nullable Configuration create() {

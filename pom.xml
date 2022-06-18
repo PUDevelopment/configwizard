@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>eu.playerunion.configwizard</groupId>
 	<artifactId>configwizard</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>beta-0.1.1</version>
 
 	<name>configwizard</name>
 	<description>
