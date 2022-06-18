@@ -1,4 +1,4 @@
-# configwizard - leírás
+# configwizard - leírás [![Build Status](https://jenkins.playerunion.eu/job/configwizard/1/badge/icon)](https://jenkins.playerunion.eu/job/configwizard/1/)
 Univerzális json alapú konfig kezelő lib az egyéb projektekhez (Spigot, BungeeCord, Sponge, etc.)\
 \
 **A működése Reflection-ön alapul**, mely során előre deklarált változókat tudsz felhasználni a konfigurációban tárolt értékek lekéréséhez.\
