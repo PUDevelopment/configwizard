@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.google.gson.TypeAdapter;
 
 import eu.playerunion.configwizard.shared.impl.ConfigurationNode;
 import eu.playerunion.configwizard.shared.impl.ConfigurationNodeContainer;
@@ -138,13 +139,29 @@ public class Configuration {
 	/**
 	 * TypeAdapter beregisztrálása az objektumok könnyebb formázása érdekében.
 	 * 
+	 * @param type - A TypeAdater típusa.
 	 * @param typeAdapter - Beregisztrálni kívánt TypeAdapter.
 	 */
 
-	public void registerTypeAdapter(@NotNull ConfigurationTypeAdapter<?> typeAdapter) {
+	public void registerTypeAdapter(@NotNull Class<?> type, @NotNull ConfigurationTypeAdapter<?> typeAdapter) {
+		Validate.notNull(type, "A beregisztrálni kívánt TypAdapter típusa nem lehet null!");
 		Validate.notNull(typeAdapter, "A beregisztrálni kívánt TypeAdapter nem lehet null!");
 
-		this.gson = this.gsonBuilder.registerTypeAdapter(typeAdapter.getType(), typeAdapter).create();
+		this.gson = this.gsonBuilder.registerTypeAdapter(type, typeAdapter).create();
+	}
+	
+	/**
+	 * TypeAdapter beregisztrálása az objektumok könnyebb formázása érdekében.
+	 * 
+	 * @param type - A TypeAdapter típusa.
+	 * @param typeAdapter - Beregisztrálni kívánt TypeAdapter.
+	 */
+
+	public void registerTypeAdapter(@NotNull Class<?> type, @NotNull TypeAdapter<?> typeAdapter) {
+		Validate.notNull(type, "A beregisztrálni kívánt TypAdapter típusa nem lehet null!");
+		Validate.notNull(typeAdapter, "A beregisztrálni kívánt TypeAdapter nem lehet null!");
+
+		this.gson = this.gsonBuilder.registerTypeAdapter(type, typeAdapter).create();
 	}
 
 }

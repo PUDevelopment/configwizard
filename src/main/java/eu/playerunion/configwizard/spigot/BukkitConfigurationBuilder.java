@@ -1,9 +1,13 @@
 package eu.playerunion.configwizard.spigot;
 
 import java.io.File;
+import java.util.UUID;
 
+import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import com.mojang.util.UUIDTypeAdapter;
 
 import eu.playerunion.configwizard.shared.Configuration;
 import eu.playerunion.configwizard.shared.impl.ConfigurationBuilder;
@@ -34,7 +38,9 @@ public class BukkitConfigurationBuilder implements ConfigurationBuilder {
 	 */
 	
 	public BukkitConfigurationBuilder enableBukkitTypeAdapters() {
-		this.configuration.registerTypeAdapter(new BukkitLocationTypeAdapter());
+		this.configuration.registerTypeAdapter(Location.class, new BukkitLocationTypeAdapter());
+		
+		this.configuration.registerTypeAdapter(UUID.class, new UUIDTypeAdapter());
 		
 		return this;
 	}

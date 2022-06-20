@@ -49,9 +49,4 @@ public class BukkitLocationTypeAdapter implements ConfigurationTypeAdapter<Locat
 		return obj;
 	}
 
-	@Override
-	public Type getType() {
-		return Location.class;
-	}
-
 }
